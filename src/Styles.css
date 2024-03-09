@@ -2,10 +2,20 @@
   font-family: "Roboto", sans-serif;
   padding: 0;
   margin: 0;
+  border-radius: 5px;
 }
 
 body {
-    background-color: #222222;
+  background-color: #222222;
+}
+
+.loading {
+  text-align: center;
+  color: #f1f1f1;
+}
+
+.custom-category {
+  color: #222222;
 }
 
 .ui.header {
@@ -15,7 +25,7 @@ body {
 .ui.cards > .card > .image {
   height: 250px;
   padding: 20px;
-  background: #fff;
+  background: #f1f1f1;
   margin: auto;
 }
 .ui.cards > .card > .image > img {
@@ -36,13 +46,13 @@ body {
 .ui.cards > .card .meta.price {
   margin-bottom: 5px;
   font-size: 18px;
-  color: #333;
+  color: #222222;
   font-weight: 600;
 }
 
 .ui.cards > .card .meta.price > a {
   font-size: 1.3rem;
-  color: #222;
+  color: #222222;
 }
 
 .ui.menu.fixed {
@@ -55,7 +65,7 @@ body {
 }
 
 .ui.grid > .row {
-  background: #fff;
+  background: #f1f1f1;
 }
 .ui.grid > .row > .column.lp {
   padding: 20px 40px 20px 20px;
@@ -83,19 +93,18 @@ body {
 }
 
 .column.rp h1 {
-  color: #333;
+  color: #222222;
 }
 .column.rp p {
   font-size: 18px;
-  color: #777;
+  color: #222222;
 }
 .ui.placeholder.segment .column .button,
 .ui.placeholder.segment .column .field,
 .ui.placeholder.segment .column textarea,
 .ui.placeholder.segment .column > .ui.input {
-  background-color: #ff3e6c;
-  border: 1px solid #ff3e6c;
-  color: #fff;
+  background-color: #222222;
+  color: #f1f1f1;
   font-size: 18px;
   margin-left: 0;
 }

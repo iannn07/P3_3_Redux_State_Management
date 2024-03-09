@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { removeSelectedProduct, selectedProducts } from "../redux/actions/productActions";
+import { fetchProductDetails, removeSelectedProduct } from "../redux/actions/productActions";
 
 const ProductDetail = () => {
   const product = useSelector((state) => state.product);
@@ -10,20 +9,8 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   console.log(product);
 
-  const fetchProductDetail = async () => {
-    try {
-      const response = await axios.get(
-        `https://fakestoreapi.com/products/${productId}`
-      );
-      dispatch(selectedProducts(response.data));
-    } catch (error) {
-      console.log("Error", error.message);
-      throw error;
-    }
-  };
-
   useEffect(() => {
-    if (productId && productId !== "") fetchProductDetail();
+    if (productId && productId !== "") dispatch(fetchProductDetails(productId));
     return () => {
       dispatch(removeSelectedProduct());
     }
@@ -32,7 +19,7 @@ const ProductDetail = () => {
   return (
     <div className="ui grid container">
       {Object.keys(product).length === 0 ? (
-        <div>...Loading</div>
+        <h1 className="loading">Loading...</h1>
       ) : (
         <div className="ui placeholder segment">
           <div className="ui two column stackable center aligned grid">
@@ -44,9 +31,9 @@ const ProductDetail = () => {
               <div className="column rp">
                 <h1>{product.title}</h1>
                 <h2>
-                  <p className="ui teal tag label">${product.price}</p>
+                  <p className="ui black tag label">${product.price}</p>
                 </h2>
-                <h3 className="ui brown block header">{product.category}</h3>
+                <h3 className="ui custom-category block header">{product.category}</h3>
                 <p>{product.description}</p>
                 <div className="ui vertical animated button" tabIndex="0">
                   <div className="hidden content">
