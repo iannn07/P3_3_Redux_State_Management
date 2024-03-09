@@ -8,6 +8,10 @@ body {
     background-color: #222222;
 }
 
+.ui.header {
+  text-decoration: none;
+}
+
 .ui.cards > .card > .image {
   height: 250px;
   padding: 20px;
